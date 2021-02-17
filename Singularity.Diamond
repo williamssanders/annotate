@@ -12,9 +12,8 @@ From:ubuntu
     export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
     echo "tzdata tzdata/Areas select US" >> /opt/preseed.txt
     echo "tzdata tzdata/Zones/US select Chicago" >> /opt/preseed.txt
-    #echo "locales locales/locales_to_be_generated multiselect en_US.UTF-8 UTF-8"
-    #echo "locales locales/default_environment_locale select en_US.UTF-8"
     debconf-set-selections /opt/preseed.txt
+    rm /opt/preseed.txt
 
     # Update System
 	apt update && apt upgrade -y
@@ -30,5 +29,5 @@ From:ubuntu
     make && make install
    
 %runscript
-	echo "Hello from Container!"
+	diamond help
     
