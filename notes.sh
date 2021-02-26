@@ -10,5 +10,6 @@ cp gm_key_64 ~/.gm_key
 cp gm_key_64 ~/.gm_key_64
 
 # How to configure the RepeatMasker container for proper usage
+# https://sylabs.io/guides/3.5/user-guide/persistent_overlays.html
 # dd if=/dev/zero of=rm_overlay.img bs=1M count=500 && mkfs.ext3 rm_overlay.img
 # singularity shell --overlay rm_overlay.img RepeatMasker.sif
