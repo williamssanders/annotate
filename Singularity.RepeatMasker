@@ -19,9 +19,10 @@ From:ubuntu
 	apt update && apt upgrade -y
     
     # Install RepeatMakser Dependencies
-    apt install -y wget make python3 python3-pip locales build-essential cpio
+    apt install -y wget make python3 python3-pip locales build-essential cpio cpanminus
     LANG=C perl -e exit
     locale-gen en_US.UTF-8
+    cpanm Text::Soundex
     # Install h5py Python Library
     pip3 install pytest
     pip3 install h5py
@@ -36,8 +37,8 @@ From:ubuntu
     patch -p1 < ../isb-2.10.0+-rmblast.patch
     cd c++
     ./configure --with-mt --without-debug --without-krb5 --without-openssl --with-projects=scripts/projects/rmblastn/project.lst --prefix=/usr/local/rmblast
-    #make
-    #make install
+    make -j2
+    make -j2 install
     cd /opt
     rm ncbi-blast-2.10.0+-src.tar.gz
 
