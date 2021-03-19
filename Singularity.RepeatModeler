@@ -17,7 +17,8 @@ From:ubuntu
 
     # Update System
 	apt update && apt upgrade -y
-    
+    apt install -y wget make python3 python3-pip locales build-essential cpio cpanminus nano
+        
     # Install RECON
     cd /opt
     wget http://www.repeatmasker.org/RepeatModeler/RECON-1.08.tar.gz
@@ -28,9 +29,18 @@ From:ubuntu
     cd /opt
     rm RECON-1.08.tar.gz
     # Needs Additional Configuration in Overlay IMG
+
+    # Install RepeatScout
+    cd /opt
+    wget http://www.repeatmasker.org/RepeatScout-1.0.6.tar.gz
+    tar -xzf RepeatScout-1.0.6.tar.gz
+    cd RepeatScout-1.0.6/
+    make
+    cd /opt
+    rm RepeatScout-1.0.6.tar.gz
     
     # Install RepeatMasker Dependencies
-    apt install -y wget make python3 python3-pip locales build-essential cpio cpanminus
+    #apt install -y wget make python3 python3-pip locales build-essential cpio cpanminus
     LANG=C perl -e exit
     locale-gen en_US.UTF-8
     cpanm Text::Soundex
@@ -72,12 +82,17 @@ From:ubuntu
     #wget https://www.dfam.org/releases/Dfam_3.2/families/Dfam.h5.gz
     #gunzip Dfam.h5.gz
     #mv Dfam.h5 /usr/local/RepeatMasker/Libraries 
+    # Can Bind Larger DFAM Libraries Externally to the Container
 
-
-
+    # Install RepeatModeler
+    cd /opt
+    wget http://www.repeatmasker.org/RepeatModeler/RepeatModeler-2.0.1.tar.gz
+    tar xzvf RepeatModeler-2.0.1.tar.gz
+    rm RepeatModeler-2.0.1.tar.gz
+    # Needs Additional Configuration in Overlay IMG
        
 
    
 %runscript
-	echo "Hello from RepeatMasker Container!"
+	echo "Hello from RepeatModeler Container!"
     
