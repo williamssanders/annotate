@@ -18,6 +18,17 @@ From:ubuntu
     # Update System
 	apt update && apt upgrade -y
     
+    # Install RECON
+    cd /opt
+    wget http://www.repeatmasker.org/RepeatModeler/RECON-1.08.tar.gz
+    tar -xzf RECON-1.08.tar.gz
+    cd RECON-1.08/src/
+    make
+    make install
+    cd /opt
+    rm RECON-1.08.tar.gz
+    # Needs Additional Configuration in Overlay IMG
+    
     # Install RepeatMasker Dependencies
     apt install -y wget make python3 python3-pip locales build-essential cpio cpanminus
     LANG=C perl -e exit
@@ -54,6 +65,8 @@ From:ubuntu
     rm RepeatMasker-4.1.1.tar.gz
     cd /opt/RepeatMasker
     #perl ./configure
+    # Needs Additional Configuration in Overlay IMG
+
 
     # Update Dfam Libraries (~15 GB)
     #wget https://www.dfam.org/releases/Dfam_3.2/families/Dfam.h5.gz
