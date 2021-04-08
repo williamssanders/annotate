@@ -110,6 +110,8 @@ From:ubuntu
     cpanm threads
     cd /opt
     git clone https://github.com/Gaius-Augustus/BRAKER.git
+    cd /opt
+    chmod -R a+w /opt
 
 
    
