@@ -1,3 +1,5 @@
 *.sif
 gm_key*
 *.img
+*.bak
+*.sav
