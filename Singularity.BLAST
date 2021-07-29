@@ -8,7 +8,7 @@ From:ubuntu
 	# Files for Build Go Here
 
 %post
-	# DEBCONF Configuration
+    # DEBCONF Configuration
     export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
     echo "tzdata tzdata/Areas select US" >> /opt/preseed.txt
     echo "tzdata tzdata/Zones/US select Chicago" >> /opt/preseed.txt
